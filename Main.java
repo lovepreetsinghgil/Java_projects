@@ -1,28 +1,52 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in); 
-      int a = sc.nextInt();
-     int count = 0;
-     int n= a-1;
-     int j=a;
-    for(int i=1;i<j;i++)
-    {   
-        if(n%i==0){
-          j=n/i;
-            if(i!=j){
-            count+=2;
-            }
-            else{
-            count++;
-            }
+    public static String condition(long n){
+        long digit=n;
+        System.out.println(digit);
+        long temp = 0;
+        long rem = 0;
+        int i=0;
+        while(n!=0){
+          i++;
+            rem = n%10;
+            temp = temp*10+rem;
+            n=n/10;
         }
-    }
-    if (count==2){
-  System.out.print("prime number");
-    } else {
-    System.out.print("none prime numbember12");
-}
+        System.out.println(temp);
+       String st1 = String.valueOf(digit);
+       String st2 = st1+temp;
+       return st2;
+       
+ }
 
+    public static String solve(int A) {
+        Queue<Long> q = new LinkedList<>();
+        q.offer(1L);
+        q.offer(2L);
+        long ans= 1;    // use to store the nth value of the queue thta pushed in recently
+        int count =2;
+        if(A==2){
+          ans=2;
+        }
+        while(!q.isEmpty() && count<A){
+        long value =q.poll(); 
+         System.out.println(value + " jh");
+         long n=0;    // using to manuplate the value pop from the Queue
+         int i=1;
+        while(count<A && i<=2){
+           n = value*10+i;
+           ans = n;
+           q.offer(n);
+           count++;
+           i++;
+          }
+        }
+     return condition(ans);
+    }
+    
+    public static void main(String[] args) {
+      int n = 4;
+      System.out.print( solve(n));
+  }
 }
