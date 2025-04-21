@@ -10,7 +10,7 @@ public class Main {
     for(int i=1;i<j;i++)
     {   
         if(n%i==0){
-          j=n/i
+          j=n/i;
             if(i!=j){
             count+=2;
             }
@@ -21,10 +21,8 @@ public class Main {
     }
     if (count==2){
   System.out.print("prime number");
-    else
-    System.out.print("none prime number");
-    
-   }
+    } else {
+    System.out.print("none prime numbember12");
 }
 
 }
