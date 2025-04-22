@@ -1,9 +1,9 @@
 package TREES;
 
-// Node class moved to a separate file named Node.java
+import TREES.Node; // Import the Node class
 
 public class HeightOfTree {
-    public static int height(nod root) {
+    public static int height(Node root) { // Fixed class name
         if (root == null) {
             return 0;
         }
@@ -13,9 +13,14 @@ public class HeightOfTree {
     }
 
     public static void main(String[] args) {
-        nod root = new nod(1);
-        root.left = new nod(2);
-        root.right = new nod(3);
+        Node root = new Node(1); // Fixed class name
+        root.left = new Node(2); // Fixed class name
+        root.right = new Node(3); // Fixed class name
+
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
 
         System.out.println("Height of the tree: " + height(root));
     }
